@@ -14,25 +14,18 @@ DATADIR = "/content/drive/My Drive/Google20/"
 
 pickle_in = open(DATADIR + "datasetX.pickle","rb")
 X = pickle.load(pickle_in)
+X = X/255.0
 
 pickle_in = open(DATADIR + "datasety.pickle","rb")
 y = pickle.load(pickle_in)
-
 y = np.array(y)
 
-X = X/255.0
-print(X.shape)
-print(y.shape)
-print(y[0])
-
 model = Sequential()
-model.add(Conv2D(48, (5, 5), input_shape=X.shape[1:]))
+model.add(Conv2D(32, (5, 5), input_shape=X.shape[1:]))
 model.add(Activation('relu'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Conv2D(48, (5, 5)))
+model.add(Conv2D(64, (3, 3)))
 model.add(Activation('relu'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Conv2D(48, (5, 5)))
+model.add(Conv2D(64, (3, 3)))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten()) 
