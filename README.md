@@ -9,7 +9,7 @@ In order to run the model for yourself, first run shell (Command Prompt) using [
 
 ##### MIDICSV
 After downloading MIDICSV, drag the application called *Midicsv* into your desktop, but do not launch it. Next, open up Command Prompt and switch your directory to the Desktop by running the following code:
-
+> cd C:\Users\[username]\Desktop
 Next, simply run the following command:
 
 
