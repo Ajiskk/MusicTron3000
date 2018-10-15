@@ -19,10 +19,10 @@ midicsv -v <InputFileName>.mid <OutputFileName>.txt
 The new *.csv* file should be stored as a *.txt* and located in your desktop.
 
 ##### CSVtoImage
-In order to run the *.java* file, you will need Eclipse or some other Java IDE to modify and run Java code. The java code can be found in the **CSVtoImage** folder. At the top of the file, simply change the *FILE_NAME* to the directory and file name of your *.csv* file. Then you should run the code and recieve a *.png* file, with each pixel and color channel representing a note in the music file.
+In order to run the *.java* file, you will need [Eclipse](https://www.eclipse.org/) or some other Java IDE to modify and run Java code. The java code can be found in the **CSVtoImage** folder. At the top of the file, simply change the *FILE_NAME* to the directory and file name of your *.csv* file. Then you should run the code and recieve a *.png* file, with each pixel and color channel representing a note in the music file.
 
 ##### The Model
-In order to run the model, you will need some sort of Python editor or Jupyter notebook. 
+In order to run the model, you will need some sort of [Python](https://www.python.org/) editor or Jupyter notebook. For this project, Google Colab was used.
 
 ## Altering the Model
 This code is open source and can be redistributed, reused, or altered in any form or fashion. The code for altering the model can be found in the **Model** folder. If you would like to retrain the model, ensure that you have the appropriate libraries installed on your computer and you have a decent GPU. Training the model is very resource intensive, as the image files are by default 128x500!
