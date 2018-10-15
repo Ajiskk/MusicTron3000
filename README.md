@@ -19,10 +19,10 @@ midicsv -v <InputFileName>.mid <OutputFileName>.txt
 The new *.csv* file should be stored as a *.txt* and located in your desktop.
 
 ##### CSVtoImage
-In order to run the *.java* file, you will need [Eclipse](https://www.eclipse.org/) or some other Java IDE to modify and run Java code. The java code can be found in the **CSVtoImage** folder. At the top of the file, simply change the *FILE_PATH* and *FILE_NAME* to the directory and file name of your *.csv* file. You may also resize the image to different lengths other than 500 by modifying the *MAX_LENGTH* value, but this **will require a retraining of the model.** Then you should run the code and recieve a *.png* file, with each pixel and color channel representing a note in the music file.
+In order to run the *.java* file, you will need [Eclipse](https://www.eclipse.org/) or some other Java IDE to modify and run Java code. The java code can be found in the **CSVtoImage** folder. Import all the files. *CSVtoImage.java* contains the main executable. At the top of the *CSVtoImage.java*, simply change the *FILE_PATH* and *FILE_NAME* to the directory and file name of your *.csv* file. You may also resize the image to different lengths other than 500 by modifying the *MAX_LENGTH* value, but this **will require a retraining of the model.** Then you should run the code and recieve a *.png* file, with each pixel and color channel representing a note in the music file.
 
 ##### The Model
-In order to run the model, you will need some sort of [Python](https://www.python.org/) editor or Jupyter notebook. For this project, Google Colab was used. Just simply change the *
+In order to run the model, you will need some sort of [Python](https://www.python.org/) editor or Jupyter notebook. For this project, Google Colab was used. You will need to import *MusicTron3000.model* and *validation.py*. In order to validate your own music, just change the *FILE_PATH* and *FILE_NAME* to the directory and file name of your *.png* file. Make sure that the *MusicTron3000.model* is inside the same file directory as your *.png* file. Then just run the script.
 
 ## Altering the Model
 This code is open source and can be redistributed, reused, or altered in any form or fashion. The code for altering the model can be found in the **Model** folder. If you would like to retrain the model, ensure that you have the appropriate libraries installed on your computer and you have a decent GPU. Training the model is very resource intensive, as the image files are by default 128x500!
