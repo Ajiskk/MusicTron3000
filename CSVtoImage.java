@@ -17,22 +17,15 @@ import javax.imageio.ImageIO;
 
 public class CSVtoImage {
 
-	private static final int MAX_LEN = 500;
+	private static final int MAX_LENGTH = 500;
+	private static final String FILE_PATH = "internal/";
+	private static final String FILE_NAME = "<FileName>"
 	
 	public static void main(String args[]) throws IOException {
 
-		for (int i = 2; i <= 151; i++) {
-			System.out.println(i);
-			BufferedImage toReturn = csvToImage("internal/" + i + ".mid.txt");
+		BufferedImage toReturn = csvToImage(FILE_PATH + FILE_NAME + ".txt");
 			if(toReturn != null) {
-				for(int j = -16; j <= 16; j++) {
-					BufferedImage transformed = bileneTransform(toReturn, j);
-					System.out.println(j);
-					if(j < 0)
-						ImageIO.write(transformed, "PNG", new File("internal/" + MAX_LEN + "_" + i + j + ".png"));
-					else 
-						ImageIO.write(transformed, "PNG", new File("internal/" + MAX_LEN + "_" + i + "+" + j + ".png"));
-				}
+				ImageIO.write(transformed, "PNG", new File(FILE_PATH + FILE_NAME + ".png"));
 			}
 		}
 
@@ -134,83 +127,6 @@ public class CSVtoImage {
 			
 		}
 
-		/*
-		 * int minClockCount = Integer.MAX_VALUE; for(int i = 1; i < clockCounts.size();
-		 * i++) {
-		 * 
-		 * }
-		 */
-
-	}
-	
-	public static BufferedImage bileneTransform(BufferedImage img, int transform) {
-		
-		BufferedImage toReturn = cloneImage(img);
-		if(transform == 0) {
-		} else if(transform >= 1) {
-			for(int i = 0; i < transform; i++) {
-				toReturn = shiftUp(toReturn);
-			}
-		} else if(transform <= -1) {
-			for(int i = 0; i > transform; i--) {
-				toReturn = shiftDown(toReturn);
-			}
-		}
-		return toReturn;
-		
-	}
-	
-	public static BufferedImage shiftUp(BufferedImage img) {
-		
-		for(int i = img.getWidth() - 1; i >= 1; i--) {
-			int[] toCopy = getLine(img, i - 1);
-			for(int j = 0; j < toCopy.length; j++) {
-				img.setRGB(i, j, toCopy[j]);
-			}
-		}
-		for(int i = 0; i < img.getHeight(); i++) {
-			img.setRGB(0, i, Color.BLACK.getRGB());
-		}
-		return img;
-		
-	}
-	
-	public static BufferedImage shiftDown(BufferedImage img) {
-		
-		for(int i = 1; i <= img.getWidth() - 2; i++) {
-			int[] toCopy = getLine(img, i + 1);
-			for(int j = 0; j < toCopy.length; j++) {
-				img.setRGB(i, j, toCopy[j]);
-			}
-		}
-		for(int i = 0; i < img.getHeight(); i++) {
-			img.setRGB(img.getWidth() - 1, i, Color.BLACK.getRGB());
-		}
-		return img;
-		
-	}
-	
-	public static BufferedImage cloneImage(BufferedImage img) {
-		
-		BufferedImage toReturn = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_RGB);
-		for(int i = 0; i < toReturn.getWidth(); i++) {
-			for(int j = 0; j < toReturn.getHeight(); j++) {
-				toReturn.setRGB(i, j, img.getRGB(i, j));
-			}
-		}
-		return toReturn;
-		
-		
-	}
-	
-	public static int[] getLine(BufferedImage img, int line) {
-		
-		int[] toReturn = new int[img.getHeight()];
-		for(int i = 0; i < toReturn.length; i++) {
-			toReturn[i] = img.getRGB(line, i);
-		}
-		return toReturn;
-		
 	}
 
 }
