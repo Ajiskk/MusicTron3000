@@ -9,9 +9,14 @@ In order to run the model for yourself, first run shell (Command Prompt) using [
 
 ##### MIDICSV
 After downloading MIDICSV, drag the application called *Midicsv* into your desktop, but do not launch it. Next, open up Command Prompt and switch your directory to the Desktop by running the following code:
-> cd C:\Users\[username]\Desktop
+```
+cd C:\Users\<Username>\Desktop
+```
 Next, simply run the following command:
-
+```
+midicsv -v <InputFileName>.mid <OutputFileName>.txt
+```
+The new *.csv* file should be stored as a *.txt* and located in your desktop.
 
 ##### CSVtoImage
 In order to run the *.java* file, you will need Eclipse or some other Java IDE to modify and run Java code. The java code can be found in the **CSVtoImage** folder. At the top of the file, simply change the *FILE_NAME* to the directory and file name of your *.csv* file. Then you should run the code and recieve a *.png* file, with each pixel and color channel representing a note in the music file.
